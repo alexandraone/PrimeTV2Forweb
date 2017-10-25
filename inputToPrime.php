@@ -12,25 +12,6 @@ function popUpImage() {
   window.open("Output/tmp.pdf");
 }
 
-//Prevent going to new page when submitting form
-
-//$(document).on('submit', '#uploadFilesID', function(e) {
-  $("#uploadFilesID").on('submit', function(e) {
-      e.preventDefault();
-     $.ajax({
-        url: $(this).attr('action'),
-        type: $(this).attr('method'),
-        data: $(this).serialize(),
-        success: function(html) {
-        alert('ok');
-        }
-    });
-  
- 
-});
-
-
-
 </script>
 
 <ul class="navbar">
@@ -52,8 +33,10 @@ function popUpImage() {
   <input type="radio" name="input" id="rbAlt"/> Alternative input<br/>
 </form>
 
+<!-- Används för att form inte ska redirecta till filePath.php -->
+<iframe name="formSending" id="formIframe" style="display: none;"></iframe>
 
-<form action="filePath.php" method="post" enctype="multipart/form-data" id="uploadFilesID">
+<form action="filePath.php" method="post" enctype="multipart/form-data" id="uploadFilesID" target="formSending">
 <div id="divDef" style="padding:0 16px;">
   <h3>Select your guesttree file </h3>
   <input name="guesttree" type="file" id="guest"/>
@@ -67,11 +50,13 @@ function popUpImage() {
   <input name="mapfile" type="file" id="mapfile"/>
 </div>
 <input type="submit" name="uploadFiles" value="Upload files" style="padding: 10 10px; margin: 16 16px; background: white"/>
+<button type="button" name="btnRunProgram" style="padding: 10 10px; margin: 16 16px; background: white" 
+      onclick="runProgram()">Run program!</button> 
+<img src="Output/tmp.pdf" style="max-width: 200px; max-height: 200px; width: auto; height: auto;" onclick="popUpImage()"></img>
 </form>
 </div>
 
 
-<button type="button" name="runProgram" style="padding: 10 10px; margin: 16 16px; background: white" onclick="runProgram()">Run program!</button> 
-<img src="Output/tmp.pdf" style="max-width: 200px; max-height: 200px; width: auto; height: auto;" onclick="popUpImage()"></img>
+
 </body>
 </html>

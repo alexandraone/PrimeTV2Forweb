@@ -99,3 +99,5 @@ debug_to_console($mapfileFileType );
 		}
 }
 ?>
+
+<script type="text/javascript">alert('you have submitted the files');</script>
