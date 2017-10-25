@@ -4,7 +4,10 @@ function runProgram() {
 		url: 'runProgram.php',
 		data: {
 			action: 'call_this',
-			param: 'Input/cyano6.rtree Input/cyano.stree'
+			param: 'Input/cyano6.rtree Input/cyano.stree',
+			guesttree: document.getElementById("guest").files[0].name,
+			arttree: document.getElementById("art").files[0].name
+//			mapfile: document.getElementById("mapfile").files[0].name
 		},
 		// Här ska datat från programmet returneras (bilden)
 		success: function(html) {

@@ -11,7 +11,7 @@ function debug_to_console( $data ) {
 debug_to_console("hej" );
 
 // Guesttree upload
-$target_dir = "/Users/alexandraone/Sites/PrimeTV2/Input/";
+$target_dir = "Input/";
 $guesttree_target_file = $target_dir . basename($_FILES["guesttree"]["name"]);
 //debug_to_console( "target file=" . $target_file;
 $uploadOk = 2;
