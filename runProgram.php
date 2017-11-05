@@ -18,7 +18,14 @@ if($_POST)['action'] == 'call_this') {
 //	file_put_contents('Output/phpLog.txt', print_r($mapfile,true), FILE_APPEND);
 
 //	echo passthru('/Users/alexandraone/Sites/PrimeTV2/../../Exjobb_utanQT/primetv_build/primetv ' . $program_params . ' 
-	echo passthru('./primetv ' . $guesttree . ' ' . $arttree . ' -o Output/tmp');
+	$default = $_POST['input'];
+	if($default == 'rbDef') {
+		echo passthru('./primetv ' . $guesttree . ' ' . $arttree . ' -o Output/tmp');
+	}
+	else {
+		echo passthru('./primetv ' . $guesttree . ' ' . $arttree . ' ' . $mapfile . ' -o Output/tmp');
+	
+	}
 ?>
 }
 

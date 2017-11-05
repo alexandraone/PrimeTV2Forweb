@@ -29,8 +29,8 @@ function popUpImage() {
  or alternative input: <code>&lt;gene tree&gt; &lt;species tree&gt; &lt;map file&gt; [&lt;options&gt;] </code> 
 
  <form action="" method="post" enctype="multipart/form-data">
-  <input type="radio" name="input" id="rbDef" checked="checked"/> Default input<br/>
-  <input type="radio" name="input" id="rbAlt"/> Alternative input<br/>
+  <input type="radio" name="inputRb" id="rbDef" checked="checked" value="def"/> Default input<br/>
+  <input type="radio" name="inputRb" id="rbAlt" value="alt" /> Alternative input<br/>
 </form>
 
 <!-- Används för att form inte ska redirecta till filePath.php -->
@@ -55,8 +55,5 @@ function popUpImage() {
 <img src="Output/tmp.pdf" style="max-width: 200px; max-height: 200px; width: auto; height: auto;" onclick="popUpImage()"></img>
 </form>
 </div>
-
-
-
 </body>
 </html>
