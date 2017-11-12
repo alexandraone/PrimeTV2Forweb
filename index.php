@@ -26,9 +26,11 @@
       <script src="inputToPrime.js" type="text/javascript"></script>
       <!-- Run the program -->
       <script src="runProgram.js" type="text/javascript"></script>
+      <!-- Run the program with example guesttree and hosttree -->
+      <script src="runExampleProgram.js" type="text/javascript"></script>
     </head>
 
-    <body id="page-top">
+    <body id="page-top"> 
 
       <!-- Navigation -->
       <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
@@ -96,13 +98,17 @@
 
        <!-- Upload file -->
        <script type="text/javascript">
-  function popUpImage() {
-    window.open("Output/tmp.pdf");
-  }
 
   function render() {
     window.location.href="render.php";
   }
+
+// For reloading the page so the Example button works after going back with browser back button
+window.onpageshow = function(event) {
+if (event.persisted) {
+    window.location.reload() 
+}
+};
 
   </script>
       <section id="uploadFile">
@@ -133,10 +139,12 @@
     <input name="mapfile" type="file" id="mapfile"/>
   </div>
   <input type="submit" name="uploadFiles" value="Upload files" style="padding: 10 10px; margin: 16 16px; background: white"/>
+
   <button type="button" name="btnRunProgram" style="padding: 10 10px; margin: 16 16px; background: white" 
         onclick="runProgram(); render();">Run program!</button> 
-  <!--<img src="Output/tmp.pdf" style="max-width: 200px; max-height: 200px; width: auto; height: auto;" onclick="popUpImage()"></img> -->
   </form>
+  <h2> Or try the program with example data: </h2>
+  <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" id="exampleButton" onclick="runExampleProgram(); render();">Example data</a>
         </div>
          </div>
           </div>

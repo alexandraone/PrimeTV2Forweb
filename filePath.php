@@ -8,17 +8,13 @@ function debug_to_console( $data ) {
     echo "<script>console.log( 'Debug Objects: " . $output . "' );</script>";
 }
 
-debug_to_console("hej" );
-
 // Guesttree upload
 $target_dir = "Input/";
 $guesttree_target_file = $target_dir . basename($_FILES["guesttree"]["name"]);
-//debug_to_console( "target file=" . $target_file;
 $uploadOk = 2;
 $guesttreeFileType = pathinfo($guesttree_target_file, PATHINFO_EXTENSION);
-//debug_to_console( "filetype = " . $imageFileType;
 
-debug_to_console($guesttreeFileType);
+
 //Check if file is ok
 	if(strcmp($guesttreeFileType,"rtree") == 0) {
 		debug_to_console( "File is correct ");
@@ -47,7 +43,7 @@ $arttree_target_file = $target_dir . basename($_FILES["arttree"]["name"]);
 $uploadOk = 2;
 $arttreeFileType = pathinfo($arttree_target_file, PATHINFO_EXTENSION);
 //debug_to_console( "filetype = " . $imageFileType;
-debug_to_console($arttreeFileType );
+//debug_to_console($arttreeFileType );
 
 //Check if file is ok
 	if(strcmp($arttreeFileType,'stree') == 0) {
@@ -77,7 +73,7 @@ if(!empty(basename($_FILES["mapfile"]["name"]))) {
 	//debug_to_console( "target file=" . $mapfile_target_file;
 	$uploadOk = 2;
 	$mapfileFileType = pathinfo($mapfile_target_file, PATHINFO_EXTENSION);
-debug_to_console($mapfileFileType );
+//debug_to_console($mapfileFileType );
 
 //Check if file is ok
 	if(strcmp($mapfileFileType,'map') == 0) {

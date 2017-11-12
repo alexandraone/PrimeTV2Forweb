@@ -4,15 +4,15 @@ if($_POST)['action'] == 'call_this') {
 
 	file_put_contents('Output/phpLog.txt', print_r($_POST,true), FILE_APPEND);
 
-//	$program_params = $_POST['param'];
+	$exampleInput = $_POST['exampleInput'];
 
-//	file_put_contents('Output/phpLog.txt', print_r($program_params,true), FILE_APPEND);
+	file_put_contents('Output/phpLog.txt', print_r($exampleInput,true), FILE_APPEND);
 
 	$guesttree = 'Input/' . $_POST['guesttree'];
-	file_put_contents('Output/phpLog.txt', print_r($guesttree,true), FILE_APPEND);
+	//file_put_contents('Output/phpLog.txt', print_r($guesttree,true), FILE_APPEND);
 
 	$arttree = 'Input/' . $_POST['arttree'];
-	file_put_contents('Output/phpLog.txt', print_r($arttree,true), FILE_APPEND);
+//	file_put_contents('Output/phpLog.txt', print_r($arttree,true), FILE_APPEND);
 
 //	$mapfile = 'Input/' . $_POST['mapfile'];
 //	file_put_contents('Output/phpLog.txt', print_r($mapfile,true), FILE_APPEND);
@@ -22,10 +22,14 @@ if($_POST)['action'] == 'call_this') {
 	if($default == 'rbDef') {
 		echo passthru('./primetv ' . $guesttree . ' ' . $arttree . ' -o Output/tmp');
 	}
-	else {
+	else if ($default == 'rbAlt'){
 		echo passthru('./primetv ' . $guesttree . ' ' . $arttree . ' ' . $mapfile . ' -o Output/tmp');
 	
 	}
+	else {
+		echo passthru('./primetv ' . $exampleInput . ' -o Output/tmp');
+	}
+	
 ?>
 }
 
