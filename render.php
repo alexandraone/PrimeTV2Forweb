@@ -10,8 +10,6 @@
 
 		    <!-- Bootstrap core CSS -->
 		    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-		    <!-- Canvas -->
-		    <link href="css/imageCanvas.css" rel="stylesheet">
 
 		    <!-- Custom fonts for this template -->
 		    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -23,11 +21,10 @@
 		    <!-- Custom styles for this template -->
 		    <link href="css/agency.min.css" rel="stylesheet">
 
+		    <!-- Style for output image -->
+		    <!-- <link href="css/outputImage.css" rel="stylesheet"> -->
+
 		    <script src="jquery-3.2.1.min.js" type="text/javascript"></script>
-		    <!-- Show/hide file input -->
-		    <script src="inputToPrime.js" type="text/javascript"></script>
-		    <!-- Run the program -->
-		    <script src="runProgram.js" type="text/javascript"></script>
 		  </head>
 
 		  <body id="page-top">
@@ -43,9 +40,6 @@
 		        <div class="collapse navbar-collapse" id="navbarResponsive">
 		          <ul class="navbar-nav text-uppercase ml-auto">
 		            <li class="nav-item">
-		              <a class="nav-link js-scroll-trigger" href="index.php#howto">How to</a>
-		            </li>
-		            <li class="nav-item">
 		              <a class="nav-link js-scroll-trigger" href="index.php#uploadFile">Upload files</a>
 		            </li>
 		            <li class="nav-item">
@@ -60,13 +54,12 @@
 		    </nav>
 
 		    <!-- How to -->
-		    <section id="howto">
+		    <section id="output">
 		      <h1>Output from PrimeTV2ForWeb</h1>
-		     <canvas id="imageCanvas" width="1018" height="1420" style="width: 1018px; height: 1420px; background-image:url(
-		      '<?php  $file = "Output/tmp.pdf";
+		     <p style="text-align: center;"><img id="imageOutput" width="818" height="1220" src='<?php  $file = "Output/tmp.svg";
 		    if(file_exists($file)) { echo $file; }
-		     ?>')">
-		     </canvas>
+		     ?>'>
+		     </img></p>
 		    </section>
 
 
