@@ -123,18 +123,6 @@
         }
   }
 
-          //Show text input if textOnTop is selected
-      function showTextInput() {
-        var time = document.getElementById("activateButton");
-        if(time.innerHTML == "Activate options") {
-          time.innerHTML = "Close activate options";
-          $('#activateOption').show();
-        } else {
-          time.innerHTML = "Activate options";
-          $('#activateOption').hide();
-        }
-      }
-
         //Show text input if textOnTop is selected
         function showTextInput() {
         var checked = document.getElementById("textOnTop").checked;
