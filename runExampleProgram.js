@@ -17,6 +17,5 @@
 		        alert(thrownError);
 		    	}
 		    }
-			});
-			 window.location.href="render.php"; 
+			}).done(function(data) { window.location.href="render.php";});
 			}
