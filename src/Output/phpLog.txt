@@ -1,0 +1,18 @@
+Log-file deletedOutputfile deletedArray
+(
+    [color] => grey
+    [guestFont] => serif
+    [hostFont] => serif
+    [allFont] => serif
+    [activateLegend] => legend
+    [activateHeader] => header
+    [textOnTop] => textOnTop
+    [textOnTopInput] => Test
+    [guesttree] => cyano5.rtree
+    [arttree] => cyano.stree
+)
+ -f svg  -o Output/tmp -c grey -j serif -q serif -L -H -T TestArray
+(
+    [action] => call_this
+    [exampleInput] => Input/cyano6.rtree Input/cyano.stree
+)
