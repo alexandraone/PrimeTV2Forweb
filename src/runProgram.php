@@ -10,17 +10,7 @@ if($_POST)['action'] == 'call_this') {
 
     	}
 	}
-	//Delete output file, avoid caching
-	$file2_to_delete ='Output/tmp.svg';
-
-	if (is_file($file2_to_delete)){
-    	if(unlink($file2_to_delete)) {
-    		file_put_contents('Output/phpLog.txt', 'Outputfile deleted', FILE_APPEND);
-    	} else {
-    		file_put_contents('Output/phpLog.txt', 'Problem deleting outputfile', FILE_APPEND);
-
-    	}
-  	}
+	
 
 	file_put_contents('Output/phpLog.txt', print_r($_POST,true), FILE_APPEND);
 
@@ -34,7 +24,9 @@ if($_POST)['action'] == 'call_this') {
 //	file_put_contents('Output/phpLog.txt', print_r($mapfile,true), FILE_APPEND);
 
 	//Format and output file
-	$params = ' -f svg  -o Output/tmp'; 
+//	$params = ' -f svg  -o Output/tmp'; 
+	$params = ' -o Output/tmp'; 
+
 
 	//Colors
 	$color = $_POST['color'];
@@ -104,6 +96,24 @@ if($_POST)['action'] == 'call_this') {
 	if ($LGTcost != '') {
 		$params = $params . ' -l';
 	}
+
+	//Extension
+	$extension = $_POST['extension'];
+	if ($extension != '') {
+		$params = $params . ' -f ' . $extension;
+	}
+
+	//Delete output file, avoid caching
+	$file2_to_delete ='Output/tmp ' . $extension;
+
+	if (is_file($file2_to_delete)){
+    	if(unlink($file2_to_delete)) {
+    		file_put_contents('Output/phpLog.txt', 'Outputfile deleted', FILE_APPEND);
+    	} else {
+    		file_put_contents('Output/phpLog.txt', 'Problem deleting outputfile', FILE_APPEND);
+
+    	}
+  	}
 
 	file_put_contents('Output/phpLog.txt', print_r($params,true), FILE_APPEND);
 

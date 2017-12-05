@@ -198,6 +198,12 @@
            <option value="mono">Mono</option>
             <option value="yellow">Yellow</option>
         </select><br/><br/>
+           <h6>Select extension: </h6>
+        <select id="extension" name="extension" class="extentionSelect";>
+          <option value="svg">svg</option>
+          <option value="pdf">pdf</option>
+          <option value="png">png</option>
+        </select><br/><br/>
           <fieldset>
           <div>
           <input type="checkbox" name="LGTcost" id="LGTcost" value="LGT cost">

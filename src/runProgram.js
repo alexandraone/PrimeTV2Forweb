@@ -4,6 +4,10 @@
 					var form = $('#uploadFilesID')[0];
 					var form_data = new FormData(form);
 
+
+					var file_type = $("#extension :selected").text();
+					//alert("file_type=" + file_type);
+
 					//guest tree check
 					if($('#guest')[0].files.length == 0) {
 						alert("Must choose a guest tree");
@@ -53,7 +57,6 @@
 		                    alert("error def=" + thrownError);
 		                  };
 		              }
-		          }).done(function(data) { window.location.href="render.php";}); 
+		          }).done(function(data) { window.location.href="render.php?file_type=" + file_type;}); 
 		   }
-		//});
-		//});
+

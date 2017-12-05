@@ -21,8 +21,13 @@
 		    <!-- Custom styles for this template -->
 		    <link href="../GUI/css/agency.min.css" rel="stylesheet">
 
-		    <!-- Style for output image -->
-		    <!-- <link href="outputImage.css" rel="stylesheet"> -->
+		    <!-- Style for output image 
+		    <link href="outputImage.css" rel="stylesheet"> -->
+
+		    <!-- Toolbar -->
+		    <link rel="stylesheet" href="../GUI/css/navbar-fixed-right.min.css">
+		    <link rel="stylesheet" href="../GUI/css/navbar-fixed-right.css">
+
 
 		    <script src="../jquery-3.2.1.min.js" type="text/javascript"></script>
 		  </head>
@@ -55,12 +60,34 @@
 
 		    <!-- How to -->
 		    <section id="output">
-		      <h1>Output from PrimeTV2ForWeb</h1>
-		     <p style="text-align: center;"><img id="imageOutput" width="818" height="1220" src='<?php  $file = "Output/tmp.svg";
-		    if(file_exists($file)) { echo $file; }
+		      <h1 style="text-align: center;">Output from PrimeTV2ForWeb</h1>
+			<div style="display: inline-block; margin: 10%;">
+		     <img id="imageOutput" width="618" height="1020" 
+		     src='
+		     <?php  $file = "Output/tmp";
+		     $file_type = $_GET['file_type'];
+		     $output_file = $file . "." . $file_type;
+		     file_put_contents('Output/phpLog.txt', print_r($output_file,true), FILE_APPEND);
+
+		    if(file_exists($output_file)) { echo $output_file; }
 		     ?>'>
-		     </img></p>
-		    </section>
+		     </img></div>
+		    <div style="display: inline-block;">
+		    <nav class="navbar navbar-inverse navbar-fixed-right">
+		    		<ul class="nav navbar-nav navbar-right">
+          			<li>
+            			<a href='<?php  $file = "Output/tmp";
+		     $file_type = $_GET['file_type'];
+		     $output_file = $file . "." . $file_type;
+			echo $output_file;
+		     ?>' download>
+              				<i class="fa fa-save" style="font-size: 48px;"></i>
+            			</a>
+          			</li>
+        			</ul>
+			</nav>
+			</div>
+			</section>
 
 
 		    <!-- Footer -->
