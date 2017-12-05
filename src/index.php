@@ -77,10 +77,6 @@
       });
     }); 
 
-    //Direct to output side
-      function render() {
-        window.location.href="render.php";
-      }
       //Show options
       function showOption() {
         var option = document.getElementById("optionButton");
@@ -107,7 +103,7 @@
         }
       }
 
-          //Show font options
+      //Show font options
       function showFont() {
         var font = document.getElementById("fontButton");
         if(font.innerHTML == "Font options") {
@@ -120,7 +116,7 @@
       }
 
 
-          //Show activate options
+      //Show activate options
       function showActivate() {
         var activate = document.getElementById("activateButton");
         if(activate.innerHTML == "Activate options") {
@@ -157,9 +153,8 @@
       <button type="button" name="optionButton" id="optionButton" onclick="showOption();">Select options</button>
       </div>
 
-      <!-- Används för att form inte ska redirecta till uploadToServer.php -->
+      <!-- Use to avoid form from redirect to uploadToServer.php -->
       <iframe name="formSending" id="formIframe" style="display: none;"></iframe>
-
       <form action="uploadToServer.php" method="post" enctype="multipart/form-data" id="uploadFilesID" target="formSending">
       <div id="divDef" style="padding:16px 16px;">
         <div style="display: inline-block; padding:100px 100px; " id="uploads" >
@@ -269,10 +264,7 @@
           </div>
         </fieldset>
           </div>
-
           </section>
-
-
       </div>
             </div>
           </section>

@@ -1,5 +1,6 @@
 if($_POST)['action'] == 'call_this') {
 	<?php
+	//Deleting log file to avoid caching
 	$file1_to_delete ='Output/phpLog.txt';
 
 	if (is_file($file1_to_delete)){
@@ -11,20 +12,22 @@ if($_POST)['action'] == 'call_this') {
     	}
 	}
 	
-
+	//Log everything from runProgram.js
 	file_put_contents('Output/phpLog.txt', print_r($_POST,true), FILE_APPEND);
 
+	//Get guesttree path
 	$guesttree = 'Input/' . $_POST['guesttree'];
 	//file_put_contents('Output/phpLog.txt', print_r($guesttree,true), FILE_APPEND);
 
+	//Get arttree path
 	$arttree = 'Input/' . $_POST['arttree'];
 //	file_put_contents('Output/phpLog.txt', print_r($arttree,true), FILE_APPEND);
 
+	//Get mapfile path
 	$mapfile = 'Input/' . $_POST['mapfile'];
 //	file_put_contents('Output/phpLog.txt', print_r($mapfile,true), FILE_APPEND);
 
-	//Format and output file
-//	$params = ' -f svg  -o Output/tmp'; 
+	//Parameter for program
 	$params = ' -o Output/tmp'; 
 
 
@@ -116,7 +119,7 @@ if($_POST)['action'] == 'call_this') {
   	}
 
 	file_put_contents('Output/phpLog.txt', print_r($params,true), FILE_APPEND);
-
+	//Send data to primetv
 	if(file_exists($mapfile)) {
 		echo passthru('./primetv ' . $guesttree . ' ' . $arttree . ' ' . $params);
 	}

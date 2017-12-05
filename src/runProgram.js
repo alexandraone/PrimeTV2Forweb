@@ -1,12 +1,11 @@
 				function runProgram() {
 					var alternative = $('input[name="inputRb"]:checked').val();
-					//Lägger till allt som finns i form i en formdata
+					//Adds everything in form to formdata
 					var form = $('#uploadFilesID')[0];
 					var form_data = new FormData(form);
 
-
+					//Get extension for output file
 					var file_type = $("#extension :selected").text();
-					//alert("file_type=" + file_type);
 
 					//guest tree check
 					if($('#guest')[0].files.length == 0) {
@@ -14,7 +13,7 @@
 						return false;
 					} else {
 					var guesttree = $('#guest')[0].files[0].name;
-					//Lägg till guest tree till form_data
+					//Add guest tree to form_data
 					form_data.append('guesttree', guesttree);
 					}
 					//Host tree check
@@ -23,7 +22,7 @@
 						return false;
 					} else {
 						var arttree = $('#art')[0].files[0].name;
-						//Lägg till arttree till form_data
+						//Add arttree to form_data
 						form_data.append('arttree', arttree);
 					}
 					//mapfile check
@@ -34,7 +33,7 @@
 						}
 						else {
 						var mapfile = $('#mapfile')[0].files[0].name;
-						//Lägg till mapfile till form_data
+						//Add mapfile to form_data
 						form_data.append('mapfile', mapfile);
 						} 
 					}
