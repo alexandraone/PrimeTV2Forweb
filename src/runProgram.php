@@ -118,7 +118,7 @@ if($_POST)['action'] == 'call_this') {
     	}
   	}
 
-	file_put_contents('Output/phpLog.txt', print_r($params,true), FILE_APPEND);
+	//file_put_contents('Output/phpLog.txt', print_r($params,true), FILE_APPEND);
 	//Send data to primetv
 	if(file_exists($mapfile)) {
 		echo passthru('./primetv ' . $guesttree . ' ' . $arttree . ' ' . $params);

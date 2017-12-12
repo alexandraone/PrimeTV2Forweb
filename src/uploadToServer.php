@@ -1,12 +1,6 @@
 <?php
-
-function debug_to_console( $data ) {
-    $output = $data;
-    if ( is_array( $output ) )
-        $output = implode( ',', $output);
-
-    echo "<script>console.log( 'Debug Objects: " . $output . "' );</script>";
-}
+// For debug
+file_put_contents('Output/phpLog2.txt', print_r($_POST,true), FILE_APPEND);
 
 // Guesttree upload
 $target_dir = "Input/";
@@ -17,49 +11,69 @@ $guesttreeFileType = pathinfo($guesttree_target_file, PATHINFO_EXTENSION);
 
 //Check if file is ok
 	if(strcmp($guesttreeFileType,"rtree") == 0 or strcmp($guesttreeFileType,"gtree") == 0) {
-		debug_to_console( "File is correct ");
+		//$correct = "File is correct";
+		//echo "<script type='text/javascript'>alert('$correct');</script>";
 		$uploadOk = 1;
+	} elseif (filesize($guesttreeFileType) == 0){
+		$noFile = "Must choose guest tree upload.php";
+		echo "<script type='text/javascript'>alert('$noFile');</script>";
+		$uploadOk = 0;
+
 	} else {
-		debug_to_console( "File is not correct ");
+		$incorrect = "File is not correct";
+		echo "<script type='text/javascript'>alert('$incorrect');</script>";
 		$uploadOk = 0;
 	}
 //debug_to_console( "uploadOk=" . $uploadOk;
 if($uploadOk == 0) {
-	debug_to_console( "Sorry, your file was not uploaded");
+	$notUploaded = "Sorry, your file was not uploaded";
+	echo "<script type='text/javascript'>alert('$notUploaded');</script>";
+	exit();
 } else {
 	if(move_uploaded_file($_FILES["guesttree"][tmp_name], $guesttree_target_file)) {	
-		debug_to_console( "The file " . basename($_FILES["guesttree"]["name"]). " has been uploaded. ");
+		//$uploaded = "The file" . basename($_FILES["guesttree"]["name"]). " has been uploaded. ";
+		//echo "<script type='text/javascript'>alert('$uploaded');</script>";
 	} else {
-		debug_to_console( "Sorry, there was an error uploading your file");
+		$errorUploading = "Sorry, there was an error uploading your file";
+		echo "<script type='text/javascript'>alert('$errorUploading');</script>";
 	}
 }
 
 
-//Arttree upload
+
+//host tree upload
 $target_dir = "Input/";
 $arttree_target_file = $target_dir . basename($_FILES["arttree"]["name"]);
-//debug_to_console( "target file=" . $target_file;
 $uploadOk = 2;
 $arttreeFileType = pathinfo($arttree_target_file, PATHINFO_EXTENSION);
-//debug_to_console( "filetype = " . $imageFileType;
-//debug_to_console($arttreeFileType );
 
 //Check if file is ok
 	if(strcmp($arttreeFileType,'stree') == 0) {
-		debug_to_console( "File is correct ");
+		//$correct = "File is correct";
+		//echo "<script type='text/javascript'>alert('$correct');</script>";
 		$uploadOk = 1;
+	} elseif (filesize($arttreeFileType) == 0){
+		$noFile = "Must choose host tree";
+		echo "<script type='text/javascript'>alert('$noFile');</script>";
+		$uploadOk = 0;
+
 	} else {
-		debug_to_console( "File is not correct ");
+		$incorrect = "File is not correct";
+		echo "<script type='text/javascript'>alert('$incorrect');</script>";
 		$uploadOk = 0;
 	}
 //debug_to_console( "uploadOk=" . $uploadOk;
 if($uploadOk == 0) {
-	debug_to_console( "Sorry, your file was not uploaded");
+	$notUploaded = "Sorry, your file was not uploaded";
+	echo "<script type='text/javascript'>alert('$notUploaded');</script>";
+	exit();
 } else {
-	if(move_uploaded_file($_FILES["arttree"][tmp_name], $arttree_target_file)) {	
-		debug_to_console( "The file " . basename($_FILES["arttree"]["name"]). " has been uploaded. ");
+	if(move_uploaded_file($_FILES["arttree"][tmp_name], $arttree_target_file)) {
+		//$uploaded = "The file" . basename($_FILES["arttree"]["name"]). " has been uploaded. ";
+		//echo "<script type='text/javascript'>alert('$uploaded');</script>";
 	} else {
-		debug_to_console( "Sorry, there was an error uploading your file");
+		$errorUploading = "Sorry, there was an error uploading your file";
+		echo "<script type='text/javascript'>alert('$errorUploading');</script>";
 	}
 }
 
@@ -76,23 +90,31 @@ if(!empty(basename($_FILES["mapfile"]["name"]))) {
 
 //Check if file is ok
 	if(strcmp($mapfileFileType,'map') == 0) {
-		debug_to_console("File is correct ");
+		//$correct = "File is correct";
+		//echo "<script type='text/javascript'>alert('$correct');</script>";
 		$uploadOk = 1;
 	} else {
-		debug_to_console("File is not correct");
+		$incorrect = "File is not correct";
+		echo "<script type='text/javascript'>alert('$incorrect');</script>";
 		$uploadOk = 0;
 	}
 	//debug_to_console( "uploadOk=" . $uploadOk;
 	if($uploadOk == 0) {
-		debug_to_console("Sorry, your file was not uploaded");
+		$notUploaded = "Sorry, your file was not uploaded";
+		echo "<script type='text/javascript'>alert('$notUploaded');</script>";
+		exit();
 	} else {
-		if(move_uploaded_file($_FILES["mapfile"][tmp_name], $mapfile_target_file)) {	
-			debug_to_console("The file " . basename($_FILES["mapfile"]["name"]). " has been uploaded. ");
+		if(move_uploaded_file($_FILES["mapfile"][tmp_name], $mapfile_target_file)) {
+			//$uploaded = "The file" . basename($_FILES["mapfile"]["name"]). " has been uploaded. ";
+			//echo "<script type='text/javascript'>alert('$uploaded');</script>";
 		} else {
-			debug_to_console("Sorry, there was an error uploading your file");
+			$errorUploading = "Sorry, there was an error uploading your file";
+			echo "<script type='text/javascript'>alert('$errorUploading');</script>";
 			}
 		}
 }
-?>
 
-<script type="text/javascript">alert('you have submitted the files');</script>
+if($uploadOk == 1) {
+	echo "<script type='text/javascript'>alert('you have submitted the files');</script>";
+}
+?>

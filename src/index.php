@@ -1,30 +1,36 @@
       <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
       <head>
 
-          <meta charset="utf-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-          <meta name="description" content="">
-          <meta name="author" content="">
+          <meta charset="utf-8" content="PrimeTV2Forweb"/>
+          <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+          <meta name="description" content=""/>
+          <meta name="author" content=""/>
 
           <title>PrimeTV2ForWeb</title>
 
           <!-- Bootstrap core CSS -->
-          <link href="../GUI/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+          <link href="../GUI/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
 
           <!-- Custom fonts for this template -->
-          <link href="../GUI/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-          <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-          <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
-          <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-          <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+          <link href="../GUI/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+          <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css"/>
+          <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'/>
+          <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'/>
+          <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'/>
 
           <!-- Custom styles for this template -->
-          <link href="../GUI/css/agency.min.css" rel="stylesheet">
+          <link href="../GUI/css/agency.min.css" rel="stylesheet"/>
+
+          <!-- Style for uploadfile -->
+          <link href="css/uploadFiles.css" rel="stylesheet"/>
 
           <script src="../jquery-3.2.1.min.js" type="text/javascript"></script>
 
           <!-- Run the program -->
            <script src="runProgram.js" type="text/javascript"></script> 
+
+              <!-- Upload to server -->
+           <script src="uploadToServer.js" type="text/javascript"></script> 
 
           <!-- Run the program with example guesttree and hosttree -->
           <script src="runExampleProgram.js" type="text/javascript"></script>
@@ -67,6 +73,7 @@
           </header>
 
            <script type="text/javascript">
+
     //Show and hide mapfile depending on with reconciliation or without reconciliation
       $(document).ready(function() {
       $("#rbDef").click(function () {
@@ -91,17 +98,6 @@
         }
 
         }
-      //Show time options
-      function showTime() {
-        var time = document.getElementById("timeButton");
-        if(time.innerHTML == "Time options") {
-          time.innerHTML = "Close time options";
-          $('#timeOption').show();
-        } else {
-          time.innerHTML = "Time options";
-          $('#timeOption').hide();
-        }
-      }
 
       //Show font options
       function showFont() {
@@ -149,125 +145,126 @@
                 <div style="display: inline-block; margin: 100px;">
                 <div style="padding: 0px 100px ">
                   <h2 class="section-heading text-uppercase">Upload files</h2>
-                  <h3 class="section-subheading text-muted">Upload files in Newick format or test the program with example data.</h3>
+                  <h3 class="section-subheading text-muted">Upload files in Newick format or test the program with example data. </h3>
       <button type="button" name="optionButton" id="optionButton" onclick="showOption();">Select options</button>
       </div>
 
-      <!-- Use to avoid form from redirect to uploadToServer.php -->
-      <iframe name="formSending" id="formIframe" style="display: none;"></iframe>
-      <form action="uploadToServer.php" method="post" enctype="multipart/form-data" id="uploadFilesID" target="formSending">
+      <!-- Use to avoid form from redirect to uploadToServer.php 
+      <iframe name="formSending" id="formIframe" style="display: none;"></iframe> -->
+      <form action="" method="post" enctype="multipart/form-data" id="uploadFilesID" target="formSending"> 
       <div id="divDef" style="padding:16px 16px;">
-        <div style="display: inline-block; padding:100px 100px; " id="uploads" >
+      <!-- Left-div -->
+        <div style="display: inline-block; padding:100px 100px; " id="uploads">
+        <div id="guesttreeId">
           <h5>Select your guest tree file </h5>
            <form action="" method="post" enctype="multipart/form-data">
                 <input type="radio" name="inputRb" id="rbAlt" checked="checked" value="alt" /> Without reconciliation<br/>
                 <input type="radio" name="inputRb" id="rbDef" value="def"/> With reconciliation<br/>
-              </form>
+           </form>
           <input name="guesttree" type="file" id="guest"/>
+          </div>
 
+          <div id="arttreeId">
           <h5>Select your host tree file </h5>
           <input name="arttree" type="file" id="art"/>
+          </div>
+
+          <div id="divAlt">
+            <h5>Select your map file</h5>
+            <input name="mapfile" type="file" id="mapfile"/>
+          </div>
+
+          
+          <div id="runButton">
+          <!--  <h3 class="section-subheading text-muted">You must upload the files to the server before running the program. </h3>
+            <input type="submit" name="uploadFiles" value="Upload files" style="padding: 10 10px; background: white"/> -->
+            <button type="button" name="btnRunProgram" style="padding: 10 10px; margin: 16 16px; background: white;" 
+              onclick="runAll();">Run program!</button> 
+          </div>
+        </form>
         
+          <div id="exampleData">
+            <h6> Or try the program with example data: </h6>
+            <button type="button" class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" name="exampleButton" onclick= "runExampleProgram();">Example data</button>
+          </div>
+        </div> <!-- End left-div-->
 
-      <div id="divAlt">
-        <h5>Select your map file</h5>
-        <input name="mapfile" type="file" id="mapfile"/>
-      </div>
-      <div>
-      <input type="submit" name="uploadFiles" value="Upload files" style="padding: 10 10px; margin: 16 16px; background: white"/>
-
-      <button type="button" name="btnRunProgram" style="padding: 10 10px; margin: 16 16px; background: white;" 
-            onclick="runProgram();">Run program!</button> 
-      </div>
-      </form>
-      <h6> Or try the program with example data: </h6>
-      <button type="button" class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" name="exampleButton" onclick="runExampleProgram();">Example data</button>
-      </div>
-       <div style="display: none;" class="options" id="options";>
-      <h6>Select color: </h6>
-        <select name="color" id="color" class="colorSelect";>
-          <option value="blue">Blue</option>
-          <option value="kth">KTH</option>
-          <option value="su">SU</option>
-          <option value="grey">Grey</option>
-           <option value="mono">Mono</option>
-            <option value="yellow">Yellow</option>
-        </select><br/><br/>
-           <h6>Select extension: </h6>
-        <select id="extension" name="extension" class="extentionSelect";>
-          <option value="svg">svg</option>
-          <option value="pdf">pdf</option>
-          <option value="png">png</option>
-        </select><br/><br/>
-          <fieldset>
-          <div>
-          <input type="checkbox" name="LGTcost" id="LGTcost" value="LGT cost">
-          <label for="coding">Number of duplications and transfers used</label>
-          </div>
-        </fieldset>
-         <button type="button" name="timeButton" id="timeButton" onclick="showTime();">Time options</button>
-        <div id="timeOption" style="display: none;">
-        <h6>Time options: (hold down cmd/shift for multiple choice) </h6>
-        <select name="time" id="time" multiple>
-          <option value="noTimeScale">No time scale</option>
-          <option value="hostedgesByTime">Annotate host edges by their time</option>
-          <option value="noTime">No time at all</option>
-        </select>
-        </div>
-        <br/><br/>
-         <button type="button" name="fontButton" id="fontButton" onclick="showFont();">Font options</button>
-         <div id="fontOption" style="display: none;">
-        <h6>Select guest tree font:</h6>
-        <select name="guestFont" id="GuestFont">
-          <option value="serif">Serif</option>
-          <option value="sansSerif">Sans-serif</option>
-          <option value="Purisa">Purisa</option>
-          <option value="Sans">Sans</option>
-          <option value="monospace">Monospace</option>
-        </select>
-          <h6>Select host tree font:</h6>
-        <select name="hostFont" id="hostFont">
-          <option value="serif">Serif</option>
-          <option value="sansSerif">Sans-serif</option>
-          <option value="Purisa">Purisa</option>
-          <option value="Sans">Sans</option>
-          <option value="monospace">Monospace</option>
-        </select>
-          <h6>Select all fonts:</h6>
-        <select name="allFont" id="allFont">
-          <option value="serif">Serif</option>
-          <option value="sansSerif">Sans-serif</option>
-          <option value="Purisa">Purisa</option>
-          <option value="Sans">Sans</option>
-          <option value="monospace">Monospace</option>
-        </select>
-        </div>
-         <br/><br/>
-         <button type="button" name="activateButton" id="activateButton" onclick="showActivate();">Activate options</button>
-         <div id="activateOption" style="display: none;">
-        <fieldset>
-          <legend>Activate options:</legend>
-          <div>
-          <input type="checkbox" name="activateLegend" id="activateLegend" value="legend">
-          <label for="coding">Activate the legend</label>
-          </div>
-          <div>
-          <input type="checkbox" name="activateHeader" id="activateHeader" value="header">
-          <label for="coding">Activate the header</label>
-          </div>
-          <div id="textOnTopDiv">
-          <input type="checkbox" name="textOnTop" id="textOnTop" value="textOnTop" onclick="showTextInput();">
-          <label for="coding">Include the text on top of the image</label>
-          <div style="display: none;" id="textInput">
-           <input type="text" name="textOnTopInput" id="textOnTopInput" value="Write text that will appear on top of the image">
-           </div>
-          </div>
-        </fieldset>
-          </div>
-          </section>
-      </div>
+      <!-- right-div-->
+      <div style="display: none; padding: 100px 0px;" class="options" id="options">
+          <h5>Options for the output file </h5><br/>
+          <h6>Select color: </h6>
+            <select name="color" id="color" class="colorSelect">
+              <option value="blue">Blue</option>
+              <option value="kth">KTH</option>
+              <option value="su">SU</option>
+              <option value="grey">Grey</option>
+              <option value="mono">Mono</option>
+              <option value="yellow">Yellow</option>
+            </select><br/><br/>
+               <h6>Select extension: </h6>
+            <select id="extension" name="extension" class="extentionSelect">
+              <option value="svg">svg</option>
+              <option value="pdf">pdf</option>
+              <option value="png">png</option>
+            </select><br/><br/>
+              <fieldset>
+              <div id="LGTcostDiv">
+              <input type="checkbox" name="LGTcost" id="LGTcost" value="LGT cost"/>
+              <label for="coding">Number of duplications and transfers used</label>
+              </div>
+            </fieldset>
+            <div id="timeOption">
+            <h6>Time options: </h6>
+            <select name="time" id="time">
+              <option value="noTimeScale">No time scale</option>
+              <option value="hostedgesByTime">Annotate host edges by their time</option>
+            </select>
             </div>
-          </section>
+            <br/><br/>
+             <button type="button" name="fontButton" id="fontButton" onclick="showFont();">Font options</button>
+             <div id="fontOption" style="display: none;">
+            <h6>Select guest tree font:</h6>
+            <select name="guestFont" id="GuestFont">
+              <option value="serif">Serif</option>
+              <option value="sansSerif">Sans-serif</option>
+              <option value="Purisa">Purisa</option>
+              <option value="Sans">Sans</option>
+              <option value="monospace">Monospace</option>
+            </select>
+              <h6>Select host tree font:</h6>
+            <select name="hostFont" id="hostFont">
+              <option value="serif">Serif</option>
+              <option value="sansSerif">Sans-serif</option>
+              <option value="Purisa">Purisa</option>
+              <option value="Sans">Sans</option>
+              <option value="monospace">Monospace</option>
+            </select>
+            </div>
+             <br/><br/>
+             <button type="button" name="activateButton" id="activateButton" onclick="showActivate();">Activate options</button>
+             <div id="activateOption" style="display: none;">
+            <fieldset>
+              <legend>Activate options:</legend>
+              <div>
+              <input type="checkbox" name="activateLegend" id="activateLegend" value="legend"/>
+              <label for="coding">Activate the legend</label>
+              </div>
+              <div>
+              <input type="checkbox" name="activateHeader" id="activateHeader" value="header"/>
+              <label for="coding">Activate the header</label>
+              </div>
+              <div id="textOnTopDiv">
+              <input type="checkbox" name="textOnTop" id="textOnTop" value="textOnTop" onclick="showTextInput();">
+              <label for="coding">Include the text on top of the image</label>
+              <div style="display: none;" id="textInput">
+               <input type="text" name="textOnTopInput" id="textOnTopInput" value="Write text that will appear on top of the image"/>
+               </div>
+              </div>
+            </fieldset>
+          </div><!-- End right-div-->
+
+        </div>
+      </section>
 
              <!-- About page -->
         <section id="about">
@@ -307,15 +304,15 @@
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group">
-                          <input class="form-control" id="name" type="text" placeholder="Your Name *" required data-validation-required-message="Please enter your name.">
+                          <input class="form-control" id="name" type="text" placeholder="Your Name *" required data-validation-required-message="Please enter your name."/>
                           <p class="help-block text-danger"></p>
                         </div>
                         <div class="form-group">
-                          <input class="form-control" id="email" type="email" placeholder="Your Email *" required data-validation-required-message="Please enter your email address.">
+                          <input class="form-control" id="email" type="email" placeholder="Your Email *" required data-validation-required-message="Please enter your email address."/>
                           <p class="help-block text-danger"></p>
                         </div>
                         <div class="form-group">
-                          <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" required data-validation-required-message="Please enter your phone number.">
+                          <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" required data-validation-required-message="Please enter your phone number."/>
                           <p class="help-block text-danger"></p>
                         </div>
                       </div>
