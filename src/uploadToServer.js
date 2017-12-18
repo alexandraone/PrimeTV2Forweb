@@ -12,9 +12,9 @@
 						alert("Must choose a guest tree");
 						return false;
 					} else {
-					var guesttree = $('#guest')[0].files[0].name;
-					//Add guest tree to form_data
-					form_data.append('guesttree', guesttree);
+						var guesttree = $('#guest')[0].files[0].name;
+						//Add guest tree to form_data
+						form_data.append('guesttree', guesttree);
 					}
 					//Host tree check
 					if($('#art')[0].files.length == 0) {
@@ -22,7 +22,7 @@
 						return false;
 					} else {
 						var arttree = $('#art')[0].files[0].name;
-						//Add arttree to form_data
+						//Add host tree to form_data
 						form_data.append('arttree', arttree);
 					}
 					//mapfile check
@@ -56,7 +56,6 @@
 		                    if(xhr.status != 0) {
 		                    alert("status def=" + xhr.status);
 		                    alert("error def=" + thrownError);
-		                    //return false;
 		                  };
 		              }
 		          });

@@ -1,3 +1,4 @@
+				// Run program if upload to server is correct
 				function runAll() {
 					var upload = uploadToServer();
 					if (upload == true) {
@@ -21,7 +22,7 @@
 
 					//Host tree check
 						var arttree = $('#art')[0].files[0].name;
-						//Add arttree to form_data
+						//Add host tree to form_data
 						form_data.append('arttree', arttree);
 					//mapfile check
 					if(alternative == 'alt') {

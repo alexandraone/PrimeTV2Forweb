@@ -143,14 +143,12 @@
 
           <section id="uploadFile">
                 <div style="display: inline-block; margin: 100px;">
-                <div style="padding: 0px 100px ">
+                <div style="padding: 0px 120px ">
                   <h2 class="section-heading text-uppercase">Upload files</h2>
                   <h3 class="section-subheading text-muted">Upload files in Newick format or test the program with example data. </h3>
       <button type="button" name="optionButton" id="optionButton" onclick="showOption();">Select options</button>
       </div>
 
-      <!-- Use to avoid form from redirect to uploadToServer.php 
-      <iframe name="formSending" id="formIframe" style="display: none;"></iframe> -->
       <form action="" method="post" enctype="multipart/form-data" id="uploadFilesID" target="formSending"> 
       <div id="divDef" style="padding:16px 16px;">
       <!-- Left-div -->
@@ -176,16 +174,13 @@
 
           
           <div id="runButton">
-          <!--  <h3 class="section-subheading text-muted">You must upload the files to the server before running the program. </h3>
-            <input type="submit" name="uploadFiles" value="Upload files" style="padding: 10 10px; background: white"/> -->
-            <button type="button" name="btnRunProgram" style="padding: 10 10px; margin: 16 16px; background: white;" 
-              onclick="runAll();">Run program!</button> 
+            <button type="button" class="btn btn-primary" id="btnRunProgram" name="btnRunProgram" onclick="runAll();">RUN PROGRAM!</button> 
           </div>
         </form>
         
-          <div id="exampleData">
-            <h6> Or try the program with example data: </h6>
-            <button type="button" class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" name="exampleButton" onclick= "runExampleProgram();">Example data</button>
+          <div id="exampleData" style="margin: 20px 0px 0px 0px">
+            <h6> Or try the program with  <button type="button" name="exampleButton" id="exampleButton" onclick= "runExampleProgram();">EXAMPLE DATA</button> </h6>
+           
           </div>
         </div> <!-- End left-div-->
 
@@ -244,7 +239,6 @@
              <button type="button" name="activateButton" id="activateButton" onclick="showActivate();">Activate options</button>
              <div id="activateOption" style="display: none;">
             <fieldset>
-              <legend>Activate options:</legend>
               <div>
               <input type="checkbox" name="activateLegend" id="activateLegend" value="legend"/>
               <label for="coding">Activate the legend</label>
@@ -268,13 +262,13 @@
 
              <!-- About page -->
         <section id="about">
-        <header class="masthead" style="background-image: url('img/about.jpg')">
+        <header class="masthead" style="background-image: url('img/blommor.jpg')">
           <div class="overlay"></div>
           <div class="container">
             <div class="row">
               <div class="col-lg-8 col-md-10 mx-auto">
                 <div class="page-heading">
-                  <h1 style="padding: 100px 100px 100px 100px; color: blue;">About primeTV2ForWeb</h1>
+                  <h1 style="padding: 100px 100px 100px 100px; color: blue;"></h1>
                 </div>
               </div>
             </div>
@@ -284,7 +278,8 @@
         <div class="container">
           <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
-              <p>This web application is created as a degree project by Alexandra Onegård. It is a cooperation with Lars Arvestad as supervisior, he is the one that created the original program primeTV.</p>
+             <h1 style="padding: 100px 100px 20px 100px; color: black;">About primeTV2ForWeb</h1>
+              <p>This web application is created as a degree project by Alexandra Onegård. It is a cooperation with Lars Arvestad.</p>
             </div>
           </div>
         </div>
