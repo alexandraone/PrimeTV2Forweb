@@ -157,7 +157,7 @@
       <!-- Left-div -->
         <div style="display: inline-block; padding:100px 100px; " id="uploads">
         <div id="guesttreeId">
-          <h5>Select your guest tree file </h5>
+          <h5>SELECT YOUR GUEST TREE FILE </h5>
            <form action="" method="post" enctype="multipart/form-data">
                 <input type="radio" name="inputRb" id="rbAlt" checked="checked" value="alt" /> Without reconciliation<br/>
                 <input type="radio" name="inputRb" id="rbDef" value="def"/> With reconciliation<br/>
@@ -166,12 +166,12 @@
           </div>
 
           <div id="arttreeId">
-          <h5>Select your host tree file </h5>
+          <h5>SELECT YOUR HOST TREE FILE </h5>
           <input name="arttree" type="file" id="art"/>
           </div>
 
           <div id="divAlt">
-            <h5>Select your map file</h5>
+            <h5>SELECT YOUR MAP FILE</h5>
             <input name="mapfile" type="file" id="mapfile"/>
           </div>
 
@@ -189,7 +189,7 @@
 
       <!-- right-div-->
       <div style="display: none; padding: 100px 0px;" class="options" id="options">
-          <h5>Options for the output file </h5><br/>
+          <h5>OPTIONS FOR THE OUTPUT FILE </h5><br/>
           <h6>Select color: </h6>
             <select name="color" id="color" class="colorSelect">
               <option value="blue">Blue</option>
