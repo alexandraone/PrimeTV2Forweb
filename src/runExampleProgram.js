@@ -1,4 +1,7 @@
 	function runExampleProgram() {
+		
+			//extension for output file
+			var file_type = 'svg';
 			$.ajax({
 				type: "POST",
 				url: 'runExampleProgram.php',
@@ -17,5 +20,5 @@
 		        alert(thrownError);
 		    	}
 		    }
-			}).done(function(data) { window.location.href="render.php";});
+			}).done(function(data) { window.location.href="render.php?file_type=" + file_type;});
 			}

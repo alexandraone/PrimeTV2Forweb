@@ -55,7 +55,7 @@
 			    <!-- How to -->
 			    <section id="output">
 			      <h1 style="text-align: center;">Output from PrimeTV2ForWeb</h1>
-				<div style="display: inline-block; margin: 10%;">
+				<div style="display: inline-block; margin: 0% 0% 0% 20%;">
 				<!-- Get the output file and put the path in an img-tag -->
 			     <img id="imageOutput" width="618" height="1020" 
 			     src='

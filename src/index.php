@@ -131,6 +131,9 @@
         if(checked) {
           $('#textInput').show();
       }
+        else {
+          $('#textInput').hide();
+        }
     }
 
     // For reloading the page so the Example button works after going back with browser back button
