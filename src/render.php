@@ -20,6 +20,9 @@
 			    <!-- Custom styles for this template -->
 			    <link href="../GUI/css/agency.min.css" rel="stylesheet">
 
+			    <!-- Style for output -->
+			    <link href="css/outputStyle.css" rel="stylesheet">
+
 			    <!-- Toolbar -->
 			    <link rel="stylesheet" href="../GUI/css/navbar-fixed-right.min.css">
 			    <link rel="stylesheet" href="../GUI/css/navbar-fixed-right.css">
@@ -54,7 +57,7 @@
 
 			    <!-- How to -->
 			    <section id="output">
-			      <h1 style="text-align: center;">Output from PrimeTV2ForWeb</h1>
+			      <h2>OUTPUT FROM PRIMETV2</h2>
 				<div style="display: inline-block; margin: 0% 0% 0% 20%;">
 				<!-- Get the output file and put the path in an img-tag -->
 			     <img id="imageOutput" width="618" height="1020" 
@@ -71,18 +74,33 @@
 			    <div style="display: inline-block;">
 			    <nav class="navbar navbar-inverse navbar-fixed-right">
 			    		<ul class="nav navbar-nav navbar-right">
-	          			<li>
-	            			<a href='<?php  $file = "Output/tmp";
-			     $file_type = $_GET['file_type'];
-			     $output_file = $file . "." . $file_type;
-				echo $output_file;
-			     ?>' download>
-	              				<i class="fa fa-save" style="font-size: 48px;"></i>
-	            			</a>
-	          			</li>
-	        			</ul>
+	          				<li>
+	            				<a href='<?php  $file = "Output/tmp";
+				     $file_type = $_GET['file_type'];
+				     $output_file = $file . "." . $file_type;
+					echo $output_file;
+				     ?>' download>
+		              				<button><i id="fasave" class="fa fa-save" style="font-size: 48px;"></i></button>
+		            			</a>
+		          			</li>
+		          			<!-- Print the output file -->
+		          			<li>
+		            			<script type="text/javascript"> 
+		            			function printImg() {
+		            				var img = window.open('<?php  $file = "Output/tmp";
+				     				$file_type = $_GET['file_type'];
+				     				$output_file = $file . "." . $file_type;
+									echo $output_file;
+				     				?>'); 
+				     				img.onload = function () {window.print();}
+				     				} 
+				     			</script>
+		              			<button onclick="printImg();"><i id="faprint" class="fa fa-print" style="font-size: 48px;"></i></button>
+		          			</li>
+		        		</ul>
 				</nav>
 				</div>
+
 				</section>
 
 			    <!-- Footer -->
