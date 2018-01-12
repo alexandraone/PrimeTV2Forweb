@@ -64,7 +64,8 @@
 			     src='
 			     <?php  $file = "Output/tmp";
 			     $file_type = $_GET['file_type'];
-			     $output_file = $file . "." . $file_type;
+			     $date_time = $_GET['date_time'];
+			     $output_file = $file . $date_time . "." . $file_type;
 			     file_put_contents('Output/phpLog.txt', print_r($output_file,true), FILE_APPEND);
 
 			    if(file_exists($output_file)) { echo $output_file; }
@@ -77,7 +78,7 @@
 	          				<li>
 	            				<a href='<?php  $file = "Output/tmp";
 				     $file_type = $_GET['file_type'];
-				     $output_file = $file . "." . $file_type;
+				     $output_file = $file . $date_time . "." . $file_type;
 					echo $output_file;
 				     ?>' download>
 		              				<button><i id="fasave" class="fa fa-save" style="font-size: 48px;"></i></button>
@@ -89,7 +90,7 @@
 		            			function printImg() {
 		            				var img = window.open('<?php  $file = "Output/tmp";
 				     				$file_type = $_GET['file_type'];
-				     				$output_file = $file . "." . $file_type;
+				     				$output_file = $file . $date_time . "." . $file_type;
 									echo $output_file;
 				     				?>'); 
 				     				img.onload = function () {window.print();}
@@ -100,7 +101,6 @@
 		        		</ul>
 				</nav>
 				</div>
-
 				</section>
 
 			    <!-- Footer -->
@@ -108,7 +108,7 @@
 			      <div class="container">
 			        <div class="row">
 			          <div class="col-md-4">
-			            <span class="copyright">Copyright &copy; PrimeTV2ForWeb 2017</span>
+			            <span class="copyright">Copyright &copy; PrimeTV2ForWeb 2018</span>
 			          </div>
 			          <div class="col-md-4">
 			            <ul class="list-inline social-buttons">

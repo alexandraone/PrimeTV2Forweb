@@ -24,6 +24,11 @@
 						var arttree = $('#art')[0].files[0].name;
 						//Add host tree to form_data
 						form_data.append('arttree', arttree);
+
+					//Datetime to make filename distinct
+					var date = new Date();
+					form_data.append('datetime', date.getTime());
+
 					//mapfile check
 					if(alternative == 'alt') {
 						if($('#mapfile')[0].files.length == 0) {
@@ -54,6 +59,6 @@
 		                    alert("error def=" + thrownError);
 		                  };
 		              }
-		          }).done(function(data) { window.location.href="render.php?file_type=" + file_type;}); 
+		          }).done(function(data) { window.location.href="render.php?file_type=" + file_type + "&date_time=" + date.getTime();}); 
 		   }
 

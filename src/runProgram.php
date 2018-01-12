@@ -28,7 +28,7 @@ if($_POST)['action'] == 'call_this') {
 //	file_put_contents('Output/phpLog.txt', print_r($mapfile,true), FILE_APPEND);
 
 	//Parameter for program
-	$params = ' -o Output/tmp'; 
+	$params = ' -o Output/tmp' . $_POST['datetime']; 
 
 
 	//Colors
@@ -124,7 +124,7 @@ if($_POST)['action'] == 'call_this') {
 		echo passthru('./primetv ' . $guesttree . ' ' . $arttree . ' ' . $params);
 	}
 	else {
-		echo passthru('./primetv -r ' . $guesttree . ' ' . $arttree . ' ' . $mapfile . ' -o Output/tmp' . ' -f svg');
+		echo passthru('./primetv -r ' . $guesttree . ' ' . $arttree . ' ' . $mapfile . $params);
 	
 	}
 	

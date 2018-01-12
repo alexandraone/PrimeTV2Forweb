@@ -1,5 +1,8 @@
 	function runExampleProgram() {
 		
+
+			//Datetime to make filename distinct
+			var date = new Date();
 			//extension for output file
 			var file_type = 'svg';
 			$.ajax({
@@ -8,6 +11,7 @@
 				data: {
 					action: 'call_this',
 					exampleInput: 'Input/cyano6.rtree Input/cyano.stree',
+					datetime: date.getTime(),
 				},
 				success: function(html) {
 					//alert(html);
@@ -20,5 +24,5 @@
 		        alert(thrownError);
 		    	}
 		    }
-			}).done(function(data) { window.location.href="render.php?file_type=" + file_type;});
+			}).done(function(data) { window.location.href="render.php?file_type=" + file_type + "&date_time=" + date.getTime();});
 			}
