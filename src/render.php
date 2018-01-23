@@ -5,6 +5,7 @@
 			    <meta name="description" content="">
 			    <meta name="author" content="">
 
+
 			    <title>PrimeTV2ForWeb</title>
 
 			    <!-- Bootstrap core CSS -->
@@ -31,6 +32,15 @@
 			</head>
 
 			<body id="page-top">
+
+           <script type="text/javascript">
+           window.onload = function() {
+    		if(!window.location.hash) {
+        		window.location = window.location + '#loaded';
+        		window.location.reload();
+    		}
+		}
+           </script>
 
 			    <!-- Navigation -->
 			    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
