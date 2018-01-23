@@ -32,7 +32,7 @@
 			</head>
 
 			<body id="page-top">
-
+			<!-- Reloading page once to view the entire output picture  -->
            <script type="text/javascript">
            window.onload = function() {
     		if(!window.location.hash) {
